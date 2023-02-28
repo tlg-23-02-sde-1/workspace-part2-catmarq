@@ -45,6 +45,35 @@ public class Television {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        // if I am the same physical object as obj
+        boolean result = false;
+
+        if (this.getClass() == obj.getClass()) {
+            // safely downcast to more specific type Television
+            Television other = (Television) obj;
+            // do the checks: brands are the same and volumes are the same
+            result = Objects.equals(this.getBrand(), other.getBrand()) &&
+                    this.getVolume() == other.getVolume();
+        }
+        return result;
+
+
+
+//        // if obj is null OR I and obj are not the same type
+//        if (obj == null || this.getClass() != obj.getClass()) return false;
+//        Television that = (Television) obj;
+//        return this.getVolume() == that.getVolume() &&
+//                Objects.equals(this.getBrand(), that.getBrand());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getVolume());
+    }
+
+    /*
+    @Override
     public int hashCode() {
         // this is a poorly written function, bc it easily results in hash collisions.
         // a hash collision is when different object have the same hashcode.
@@ -72,6 +101,7 @@ public class Television {
 
         return result;
     }
+*/
 
     @Override
     public String toString() {
