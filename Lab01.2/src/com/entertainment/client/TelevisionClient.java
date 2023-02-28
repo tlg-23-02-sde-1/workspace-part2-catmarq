@@ -21,6 +21,9 @@ public class TelevisionClient {
         System.out.println("tvA == tvB: "   + (tvA == tvB));        // always false
         System.out.println("tvA.equals(tvB): "  + tvA.equals(tvB)); // true now
 
+        Television tvC = new Television("Samsung", 32);
+        Television tvD = new Television("LG", 45);
+
         System.out.println(tvA.hashCode());
         System.out.println(tvB.hashCode());
 
