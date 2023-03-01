@@ -1,9 +1,12 @@
 package com.entertainment.client;
 
 import com.entertainment.Television;
+import com.sun.source.tree.Tree;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class TelevisionClient {
     public static void main(String[] args) {
@@ -31,9 +34,14 @@ public class TelevisionClient {
         Set<Television> tvs = new HashSet<>();
         tvs.add(tvA);
         tvs.add(tvB);   // should be rejected as a duplicate
+        tvs.add(tvC);
+        tvs.add(tvD);
 
         // the size of the set should be 1
         System.out.println("The size of the Set is: " + tvs.size());
+        for (Television tv : tvs) {
+            System.out.println(tv);
+        }
 
     }
 }
