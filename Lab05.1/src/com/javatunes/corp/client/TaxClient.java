@@ -15,7 +15,7 @@ class TaxClient {
 
     public static void main(String[] args) {
         // call static factory method to get a reference to the sole instance.
-         IRS irs = IRS.getInstance();
+        IRS irs = IRS.getInstance();
 
 
         // create the Corporation and register it with the IRS
