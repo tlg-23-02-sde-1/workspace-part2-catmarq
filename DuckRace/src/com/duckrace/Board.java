@@ -1,5 +1,7 @@
 package com.duckrace;
 
+import com.duckrace.app.DuckRaceController;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,7 +41,7 @@ import java.util.*;
  *   17       17    Dom        1    DEBIT_CARD
  */
 
-class Board {
+public class Board {
     private final Map<Integer,String> studentIdMap = loadStudentIdMap();
     private final Map<Integer,DuckRacer> racerMap  = new TreeMap<>();
 
@@ -53,6 +55,23 @@ class Board {
             racerMap.put(id, racer);
             racer.win(reward);
         }
+    }
+
+    public void show() {
+        if (racerMap.isEmpty()) {
+            System.out.println("There are currently no winners on the board");
+        } else {
+            Collection<DuckRacer> allRacers = racerMap.values();
+            for (DuckRacer racer : allRacers) {
+                System.out.printf("%s   %s      %s      %s\n", racer.getId(),
+                        racer.getName(), racer.getWins(), racer.getRewards());
+            }
+        }
+        System.out.println("Duck Race Results");
+        System.out.println("=================\n");
+        System.out.println("id      name    wins    rewards");
+        System.out.println("--      ----    ----    --------");
+
     }
 
     // TODO render the data pretty like we see in class
