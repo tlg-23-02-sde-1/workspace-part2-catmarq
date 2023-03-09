@@ -25,27 +25,20 @@ public class Department {
     }
 
     public void listEmployees() {
-        for (Employee emp : employees) {
-            System.out.println(emp);
-        }
+        employees.forEach(System.out::println);  // emp->sout(emp)
     }
 
     public void workEmployees() {
-        for (Employee emp : employees) {
-            emp.work();
-        }
+        employees.forEach(Employee::work);   // emp -> emp.work()
     }
 
-    /**
-     * DONE: implement payEmployees() method by calling pay() on each Employee
-     * it will look similar to the workEmployees() method above
-     */
     public void payEmployees() {
-        // DONE
-        for (Employee emp : employees) {
-            emp.pay();
-        }
+        employees.forEach(Employee::pay);    // emp -> emp.pay()
     }
+
+//    for(Employee emp : employees) {       this was what was above before the lambda
+//        emp.pay()
+//    }
 
     // helper method to add an Employee to the collection
     public void addEmployee(Employee emp) {

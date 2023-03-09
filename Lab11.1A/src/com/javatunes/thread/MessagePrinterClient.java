@@ -9,7 +9,12 @@ package com.javatunes.thread;
 
 public class MessagePrinterClient {
 
-  public static void main(String[] args) {
-    // TODO: create two instances of your thread subclass and start them up
-  }
+    public static void main(String[] args) {
+        // TODO: create two instances of your thread subclass and start them up
+        MessagePrinter printer1 = new MessagePrinter("Running");
+        MessagePrinter printer2 = new MessagePrinter("Me too");
+
+        printer1.start();
+        printer2.start();
+    }
 }

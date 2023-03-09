@@ -50,7 +50,7 @@ public class Board {
             if (didHit) {
                 board[x][y] = 'X';
 
-                return sank ? "You sank thier battleship!" : "Hit!";
+                return sank ? "You sank their battleship!" : "Hit!";
             }
         }
         return "Miss!";

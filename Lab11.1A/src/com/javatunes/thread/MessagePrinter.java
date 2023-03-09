@@ -7,25 +7,38 @@
  */
 package com.javatunes.thread;
 
-// TODO: extend the Thread class
-public class MessagePrinter {
-  private String message;
-  
-  public MessagePrinter(String message) {
-    this.message = message;
-    // TODO: set the thread name [important when debugging]
-  }
-  
-  /**
-   * TODO: implement run() as follows:
-   * It should loop 10 times, printing the 'message' field to stdout,
-   * then pausing for some interval (in millis) that you choose.
-   * 
-   * Use a try/catch to call Thread.sleep(interval) for the pause.
-   * The sleep() method throws InterruptedException, which you need to catch.
-   * You can either leave the catch block empty, or print the exception to stdout.
-   */
-  public void run() {
-    
-  }
+import static java.lang.Thread.interrupted;
+
+public class MessagePrinter extends Thread{
+    private final String message;
+
+    public MessagePrinter(String message) {
+        this.message = message;
+    }
+
+    /**
+     * TODO: implement run() as follows:
+     * It should loop 10 times, printing the 'message' field to stdout,
+     * then pausing for some interval (in millis) that you choose.
+     * <p>
+     * Use a try/catch to call Thread.sleep(interval) for the pause.
+     * The sleep() method throws InterruptedException, which you need to catch.
+     * You can either leave the catch block empty, or print the exception to stdout.
+     */
+    public void run() {
+        while (!interrupted()) {
+            try {
+                for (int i = 0; i < 10; i++) {
+                    System.out.print(message);
+                    Thread.sleep(3000);
+                }
+                System.out.println("task complete");
+                break;
+            } catch (InterruptedException e) {
+                System.out.println("I was sleeping when interrupted");
+                break;
+            }
+        }
+        System.out.println("perform cleanup");
+    }
 }
